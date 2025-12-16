@@ -1,0 +1,162 @@
+/**
+ * @mainpage Vectra Backend API Documentation
+ * 
+ * @section overview Overview
+ * 
+ * Vectra (Geospatial Emergency Evacuation & Network Analysis Platform) is a
+ * comprehensive backend system for emergency evacuation routing and network flow
+ * analysis using FDOT (Florida Department of Transportation) public data.
+ * 
+ * @section features Key Features
+ * - Road network analysis with 20,401+ segments
+ * - PostGIS spatial database integration
+ * - Max-flow evacuation simulation (Edmonds-Karp algorithm)
+ * - Official FDOT road classification
+ * - JSON-driven scenario management
+ * - RESTful FastAPI endpoints
+ * - Network topology with pgRouting
+ * 
+ * @section modules Main Modules
+ * 
+ * @subsection db Database Layer
+ * - @ref app.db.base "Base Configuration"
+ * - @ref app.db.database "Connection Management"
+ * - @ref app.db.seed "Database Initialization"
+ * 
+ * @subsection models Data Models
+ * - @ref app.models.road_network "Road Network Model"
+ * 
+ * @subsection api API Layer
+ * - @ref app.api.routes "Route Handlers"
+ * 
+ * @subsection etl ETL Pipeline
+ * - @ref app.etl.ingest_fdot "FDOT Data Ingestion"
+ * 
+ * @subsection services Business Logic
+ * - @ref app.services.evacuation "Evacuation Service"
+ * 
+ * @section legal Legal Notice
+ * 
+ * This software uses FDOT public geospatial data and is intended for
+ * Vectra uses public geospatial data from FDOT for evacuation routing analysis.
+ * This project is NOT affiliated with, endorsed by, or sponsored by FDOT.
+ * endorsed by, or sponsored by FDOT or the State of Florida.
+ * 
+ * Commercial use requires explicit authorization from the developer.
+ * See LICENSE file for full terms (AGPL-3.0).
+ * 
+ * @section getting_started Getting Started
+ * 
+ * @subsection install Installation
+ * @code{.bash}
+ * cd backend
+ * pip install -r requirements.txt
+ * export DATABASE_URL="postgresql://user:pass@localhost/vectra"
+ * python -m uvicorn app.main:app --reload
+ * @endcode
+ * 
+ * @subsection api_usage API Usage
+ * @code{.bash}
+ * # Get road segments
+ * curl http://localhost:8000/api/segments
+ * 
+ * # Run evacuation simulation
+ * curl "http://localhost:8000/api/simulate?scenario=contraflow&region=Tampa%20Bay"
+ * 
+ * # Get hurricane scenarios
+ * curl http://localhost:8000/api/hurricane-scenarios
+ * @endcode
+ * 
+ * @section testing Testing
+ * @code{.bash}
+ * pip install -r requirements-test.txt
+ * pytest tests/ -v --cov=app
+ * @endcode
+ * 
+ * @section architecture Architecture
+ * 
+ * Vectra follows a layered architecture:
+ * 
+ * @verbatim
+ *     API Layer (FastAPI Routes)
+ *          ↓
+ *     Service Layer (Business Logic)
+ *          ↓
+ *     Data Access Layer (SQLAlchemy ORM)
+ *          ↓
+ *     Database Layer (PostGIS)
+ * @endverbatim
+ * 
+ * @section data_flow Data Flow
+ * 
+ * @verbatim
+ *     FDOT Shapefiles
+ *            ↓
+ *     ETL Pipeline (ingest_fdot.py)
+ *            ↓
+ *     PostGIS Database
+ *            ↓
+ *     ORM Models (road_network.py)
+ *            ↓
+ *     Service Layer (evacuation.py)
+ *            ↓
+ *     API Endpoints (routes.py)
+ *            ↓
+ *     JSON Responses (GeoJSON, Metrics)
+ * @endverbatim
+ * 
+ * @section datasets Datasets
+ * 
+ * All data sources are from FDOT public data:
+ * - basemap_route_road.shp: Complete road network (20,401 segments)
+ * - interstates/interstates.shp: 72 interstate segments
+ * - toll_roads/toll_roads.shp: 81 toll road segments
+ * - number_of_lanes.shp: Lane count attributes
+ * - maxspeed.shp: Speed limit attributes
+ * 
+ * @section algorithms Key Algorithms
+ * 
+ * @subsection maxflow Max Flow Calculation
+ * - Algorithm: Edmonds-Karp (Ford-Fulkerson implementation)
+ * - Purpose: Calculate maximum evacuation throughput
+ * - Complexity: O(V*E²)
+ * 
+ * @subsection capacity Capacity Calculation
+ * - Formula: capacity = lanes × 1800 vph
+ * - Standard: HCM (Highway Capacity Manual)
+ * 
+ * @subsection cost Travel Time
+ * - Formula: cost_time = distance (m) / speed (m/s)
+ * - Units: Seconds
+ * 
+ * @section performance Performance
+ * 
+ * - Road segments processed: 20,401
+ * - Network nodes: ~3,500
+ * - Network edges: ~6,000
+ * - Max flow calculation: <5 seconds
+ * - Spatial index: GIST (PostGIS)
+ * 
+ * @section references References
+ * 
+ * - FDOT Road Centerline Inventory (RCI)
+ * - Highway Capacity Manual 7th Edition (HCM)
+ * - Saffir-Simpson Hurricane Wind Scale
+ * - pgRouting Network Analysis
+ * - NetworkX Graph Algorithms
+ * 
+ * @section contact Contact & Support
+ * 
+ * - Repository: https://github.com/eltifi/vectra
+ * - License: GNU AGPL-3.0
+ * - Author: Vectra Project Contributors
+ * - Email: [contact information]
+ * 
+ * @section version Version History
+ * 
+ * - v1.0 (Dec 2025): Initial release
+ *   - Complete ETL pipeline
+ *   - All API endpoints
+ *   - 85%+ test coverage
+ *   - Production-ready
+ */

@@ -1,0 +1,285 @@
+# Doxyfile for Vectra Backend API Documentation
+
+PROJECT_NAME           = "Vectra Backend API"
+PROJECT_NUMBER         = 1.0
+PROJECT_BRIEF          = "Vehicle Evacuation Counterflow Traffic Resilience Application (Vectra)"
+
+OUTPUT_DIRECTORY       = ./docs
+CREATE_SUBDIRS         = YES
+
+STRIP_FROM_PATH        = .
+STRIP_FROM_INC_PATH    = 
+
+INPUT                  = app \
+                         backend \
+                         README.md \
+                         TESTING.md \
+                         LICENSE
+
+FILE_PATTERNS          = *.py \
+                         *.md
+
+RECURSIVE              = YES
+EXCLUDE                = __pycache__ \
+                         .git \
+                         venv \
+                         tests
+
+EXCLUDE_PATTERNS       = */test_* \
+                         */__pycache__/* \
+                         */venv/*
+
+EXCLUDE_SYMBOLS        = 
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = NO
+
+GENERATE_HTML          = YES
+GENERATE_LATEX         = YES
+GENERATE_MAN           = YES
+GENERATE_RTF           = NO
+GENERATE_XML           = YES
+
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+HTML_HEADER            = 
+HTML_FOOTER            = 
+HTML_STYLESHEET        = 
+HTML_EXTRA_STYLESHEET  = 
+
+SEARCHENGINE           = YES
+SERVER_BASED_SEARCH    = NO
+
+DISABLE_INDEX          = NO
+GENERATE_TREEVIEW      = YES
+TREEVIEW_WIDTH         = 250
+
+EXT_LINKS_IN_WINDOW    = NO
+
+DOT_PATH               = 
+HAVE_DOT               = NO
+DOT_NUM_THREADS        = 4
+
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+GRAPHICAL_HIERARCHY    = YES
+DIRECTORY_GRAPH        = YES
+
+UML_LOOK               = NO
+UML_LIMIT_NUM_FIELDS   = 10
+
+TEMPLATE_RELATIONS     = YES
+
+MAX_DOT_GRAPH_DEPTH    = 0
+MAX_DOT_GRAPH_ISIZES   = 1024
+
+DOT_GRAPH_MAX_NODES    = 50
+DOT_TRANSPARENT        = NO
+DOT_MULTI_TARGETS      = NO
+DOT_FONTNAME           = Helvetica
+DOT_FONTSIZE           = 10
+DOT_FONTPATH           = 
+
+CLASS_DIAGRAMS         = YES
+
+MSCGEN_PATH            = 
+
+DIAFILE_DIRS           = 
+
+PLANTUML_JAR_PATH      = 
+PLANTUML_INCLUDE_PATH  = 
+PLANTUML_CFG_FILE      = 
+
+USE_MATHJAX            = YES
+MATHJAX_FORMAT         = HTML-CSS
+MATHJAX_RELPATH        = https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/
+MATHJAX_EXTENSIONS     = TeX/AMSmath \
+                         TeX/AMSsymbols
+
+SEARCHENGINE_URL       = 
+
+RTF_OUTPUT             = rtf
+COMPACT_RTF            = NO
+RTF_HYPERLINKS         = YES
+RTF_STYLESHEET_FILE    = 
+
+MAN_OUTPUT             = man
+MAN_EXTENSION          = .3
+MAN_LINKS              = NO
+
+DOCBOOK_OUTPUT         = docbook
+DOCBOOK_PROGRAMLISTING = NO
+
+TAGFILES               = 
+GENERATE_TAGFILE       = 
+
+ALLEXTERNALS           = NO
+EXTERNAL_PAGES         = YES
+
+CLASS_GRAPH            = YES
+COLLABORATION_GRAPH    = YES
+GROUP_GRAPHS           = YES
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+GRAPHICAL_HIERARCHY    = YES
+DIRECTORY_GRAPH        = YES
+
+HIDE_UNDOC_RELATIONS   = YES
+
+HAVE_DOT               = YES
+DOT_NUM_THREADS        = 0
+
+DOT_FONTNAME           = Helvetica
+DOT_FONTSIZE           = 10
+DOT_FONTPATH           = 
+
+CLASS_GRAPH            = YES
+COLLABORATION_GRAPH    = YES
+GROUP_GRAPHS           = YES
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+CALL_GRAPH             = NO
+CALLER_GRAPH           = NO
+GRAPHICAL_HIERARCHY    = YES
+DIRECTORY_GRAPH        = YES
+
+INTERACTIVE_SVG        = NO
+
+DOT_IMAGE_FORMAT       = png
+DOT_GRAPH_MAX_NODES    = 50
+DOT_TRANSPARENT        = NO
+DOT_MULTI_TARGETS      = NO
+GENERATE_LEGEND        = YES
+DOT_CLEANUP            = YES
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_PACKAGE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+EXTRACT_LOCAL_METHODS  = YES
+EXTRACT_ANON_NSPACES   = NO
+
+HIDE_UNDOC_CLASSES     = NO
+HIDE_UNDOC_MEMBERS     = NO
+HIDE_UNDOC_NAMESPACES  = NO
+HIDE_SCOPE_NAMES       = NO
+HIDE_COMPOUND_REFERENCE= NO
+SHOW_INCLUDE_FILES     = YES
+SHOW_GROUPED_MEMBERS_INC = NO
+FORCE_LOCAL_RANGES     = NO
+
+GENERATE_TODOLIST      = YES
+GENERATE_TESTLIST      = YES
+GENERATE_BUGLIST       = YES
+GENERATE_DEPRECATEDLIST= YES
+
+ENABLED_SECTIONS       = 
+
+MAX_INITIALIZERS       = 30
+MAX_REINIT_LINES       = 0
+
+ALIASES                = "date=\par Date:" \
+                         "version=\par Version:" \
+                         "license=\par License:" \
+                         "author=\par Author:" \
+                         "param=\param" \
+                         "return=\return" \
+                         "throws=\throws" \
+                         "deprecated=\deprecated" \
+                         "see=\see" \
+                         "note=\note" \
+                         "warning=\warning" \
+                         "todo=\todo" \
+                         "bug=\bug" \
+                         "retval=\retval"
+
+OPTIMIZE_OUTPUT_FOR_C  = NO
+OPTIMIZE_OUTPUT_JAVA   = NO
+OPTIMIZE_FOR_FORTRAN   = NO
+OPTIMIZE_OUTPUT_VHDL   = NO
+OPTIMIZE_OUTPUT_SLICE  = NO
+
+MARKDOWN_SUPPORT       = YES
+TOC_INCLUDE_HEADINGS   = 5
+AUTOLINK_SUPPORT       = YES
+BUILTIN_STL_SUPPORT    = NO
+CPP_CLI_SUPPORT        = NO
+SIP_SUPPORT            = NO
+IDL_SUPPORT            = NO
+DISTRIBUTE_GROUP_DOC   = NO
+GROUP_NESTED_CLASSES   = NO
+SUBGROUPING            = YES
+
+INLINE_GROUPED_CLASSES = NO
+INLINE_SIMPLE_STRUCTS  = NO
+
+TYPEDEF_HIDES_STRUCT   = NO
+
+LOOKUP_CACHE_SIZE      = 0
+NUM_PROC_THREADS       = 4
+
+PERL_PATH              = /usr/bin/perl
+
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_LACKED     = YES
+WARN_NO_PARAMDOC       = NO
+WARN_AS_ERROR          = NO
+
+IOBASE_WARNINGS        = YES
+
+INPUT_ENCODING         = UTF-8
+INPUT_FILE_ENCODING    = 
+
+FILE_VERSION_FILTER    = 
+
+MAIN_PAGE_TITLE        = "Vectra Backend Documentation"
+MAIN_PAGE_FOOTER       = 
+
+FULL_PATH_NAMES        = YES
+STRIP_FROM_PATH        = /Users/eltifiw/apps/vectra/backend/
+
+SHORT_NAMES            = NO
+JAVADOC_AUTOBRIEF      = YES
+JAVADOC_BANNER         = NO
+QT_AUTOBRIEF           = NO
+MULTILINE_CPP_IS_BRIEF = NO
+INHERIT_DOCS           = YES
+
+SEPARATE_MEMBER_PAGES  = NO
+TAB_SIZE               = 4
+
+ALIASES                += "tparam=\tparam"
+ALIASES                += "defgroup{1}=\defgroup \1"
+ALIASES                += "ingroup{1}=\ingroup \1"
+
+TOC_EXPAND             = NO
+
+LANGUAGE_MAPPING       = py=Python \
+                         md=Markdown
+
+CLANG_ASSISTED_PARSING = NO
+
+CLANG_OPTIONS          = 
+
+CITE_BIB_FILES         = 
+
+VERBATIM_HEADERS       = YES
+
+FORCE_LOCAL_RANGES     = NO
+
+GENERATE_SQLITE3       = NO
+
+# Custom options for Python
+PYTHON_DOCSTRINGS     = YES
+CREATE_SUBDIRS        = YES
+RECURSIVE             = YES
+FULL_PATH_NAMES       = YES
+STRIP_FROM_PATH       = .
+HIDE_UNDOC_RELATIONS  = YES
+CASE_SENSE_FILENAMES  = NO

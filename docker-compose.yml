@@ -1,0 +1,87 @@
+name: 'vectra-ui'
+
+services:
+  frontend:
+    networks:
+      - net
+    ports:
+      - "3000:3000"
+    image: ghcr.io/eltifi/vectra-ui:latest
+    command: sh -c "npm run dev | tee ./logs/frontend.log"
+    #volumes:
+    #  - ./logs:/app/logs
+    environment:
+      # NEXT.JS CONFIGURATION
+      - NEXT_TELEMETRY_DISABLED=1
+      # BACKEND API CONFIGURATION
+      - API_URL=http://backend:8000
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      # REDIS CACHE CONFIGURATION
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - backend
+
+  backend:
+    networks:
+      - net
+    ports:
+      - "8000:8000"
+    image: ghcr.io/eltifi/vectra:latest
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    #volumes:
+    #  - ../logs:/app/logs
+    environment:
+      # DATABASE CONFIGURATION
+      - DATABASE_URL=postgresql://postgres:mysecretpassword@db:5432/vectra
+      # REDIS CACHE CONFIGURATION
+      - REDIS_URL=redis://redis:6379/0
+      # DATA INGESTION
+      - RAW_DATA_PATH=/app/data
+      # LOGGING CONFIGURATION
+      - LOG_DIR=/app/logs
+      - LOG_OUTPUT=both
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  db:
+    networks:
+      - net
+    ports:
+      - "5432:5432"
+    image: pgrouting/pgrouting:16-3.5-3.7
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=F1s27nILyIAR
+      - POSTGRES_DB=vectra
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    networks:
+      - net
+    ports:
+      - "6379:6379"
+    image: redis:alpine
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - redis_data:/data
+
+networks:
+  net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:

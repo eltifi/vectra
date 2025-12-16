@@ -1,0 +1,65 @@
+{
+  "scenarios": [
+    {
+      "id": "NW - Gulf Approach (Tampa Bay)",
+      "label": "NW - Gulf Approach (Tampa Bay)",
+      "category": 2,
+      "windSpeed": 96,
+      "pressureMb": 966,
+      "latitude": 27.9,
+      "longitude": -82.4,
+      "direction": 315,
+      "translationSpeed": 15,
+      "affectedRegions": ["Tampa Bay", "Sarasota-North Port"]
+    },
+    {
+      "id": "N - Panhandle Approach",
+      "label": "N - Panhandle Approach",
+      "category": 2,
+      "windSpeed": 110,
+      "pressureMb": 955,
+      "latitude": 30.4,
+      "longitude": -85.0,
+      "direction": 0,
+      "translationSpeed": 18,
+      "affectedRegions": ["Pensacola", "Tallahassee"]
+    },
+    {
+      "id": "NE - Atlantic Approach (Miami)",
+      "label": "NE - Atlantic Approach (Miami)",
+      "category": 2,
+      "windSpeed": 105,
+      "pressureMb": 961,
+      "latitude": 25.8,
+      "longitude": -80.2,
+      "direction": 45,
+      "translationSpeed": 16,
+      "affectedRegions": ["Miami", "Palm Bay-Melbourne", "Port St. Lucie"]
+    },
+    {
+      "id": "E - East Coast (Jacksonville)",
+      "label": "E - East Coast (Jacksonville)",
+      "category": 2,
+      "windSpeed": 105,
+      "pressureMb": 961,
+      "latitude": 30.3,
+      "longitude": -81.0,
+      "direction": 90,
+      "translationSpeed": 17,
+      "affectedRegions": ["Jacksonville", "Daytona Beach"]
+    },
+    {
+      "id": "SE - Southeast Approach (Keys)",
+      "label": "SE - Southeast Approach (Keys)",
+      "category": 3,
+      "windSpeed": 115,
+      "pressureMb": 945,
+      "latitude": 25.2,
+      "longitude": -80.8,
+      "direction": 135,
+      "translationSpeed": 14,
+      "affectedRegions": ["Naples-Marco Island"]
+    }
+  ]
+}
+
