@@ -58,13 +58,13 @@
  * @subsection api_usage API Usage
  * @code{.bash}
  * # Get road segments
- * curl http://localhost:8000/api/segments
+ * curl http://localhost:8000/segments
  * 
  * # Run evacuation simulation
- * curl "http://localhost:8000/api/simulate?scenario=contraflow&region=Tampa%20Bay"
+ * curl "http://localhost:8000/simulate?scenario=contraflow&region=Tampa%20Bay"
  * 
  * # Get hurricane scenarios
- * curl http://localhost:8000/api/hurricane-scenarios
+ * curl http://localhost:8000/scenarios
  * @endcode
  * 
  * @section testing Testing

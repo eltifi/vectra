@@ -76,7 +76,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Vectra API - Vehicle Evacuation & Traffic Resilience",
     lifespan=lifespan,
-    docs_url="/api/docs", # Move auto-docs to /api/docs to keep root clean
+    docs_url="/docs", # Move auto-docs to /docs to keep root clean
     redoc_url=None
 )
 

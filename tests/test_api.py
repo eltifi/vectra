@@ -6,9 +6,9 @@ Covers request/response handling, error cases, and data validation.
 
 Test Classes:
 - TestRootEndpoint: GET / documentation endpoint
-- TestSegmentsEndpoint: GET /api/segments road network data
-- TestSimulateEndpoint: GET /api/simulate evacuation simulation
-- TestHurricaneScenarios: GET /api/hurricane-scenarios scenario data
+- TestSegmentsEndpoint: GET /segments road network data
+- TestSimulateEndpoint: GET /simulate evacuation simulation
+- TestHurricaneScenarios: GET /scenarios scenario data
 
 Author: Vectra Project
 License: AGPL-3.0
@@ -90,7 +90,7 @@ class TestRootEndpoint:
 
 
 class TestSegmentsEndpoint:
-    """Test GET /api/segments road network endpoint."""
+    """Test GET /segments road network endpoint."""
     
     def test_segments_returns_json(self):
         """Test that endpoint returns valid JSON GeoJSON."""
@@ -167,7 +167,7 @@ class TestSegmentsEndpoint:
 
 
 class TestSimulateEndpoint:
-    """Test GET /api/simulate evacuation simulation."""
+    """Test GET /simulate evacuation simulation."""
     
     def test_simulate_default_parameters(self):
         """Test simulation with default parameters."""
@@ -210,7 +210,7 @@ class TestSimulateEndpoint:
             assert response.status_code == 200
 
 class TestScenariosEndpoint:
-    """Test GET /api/scenarios endpoint."""
+    """Test GET /scenarios endpoint."""
     
     def test_scenarios_returns_json(self):
         """Test that endpoint returns valid JSON."""

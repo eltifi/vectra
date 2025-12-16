@@ -116,9 +116,9 @@ def get_root_documentation() -> str:
                 <h2>🔌 API Access</h2>
                 <p>API endpoints are available under the <code>/api</code> prefix.</p>
                 <ul>
-                    <li><code>GET /api/segments</code> - Retrieve road network data</li>
-                    <li><code>GET /api/simulate</code> - Run flow simulations</li>
-                    <li><code>GET /api/scenarios</code> - List available disaster scenarios</li>
+                    <li><code>GET /segments</code> - Retrieve road network data</li>
+                    <li><code>GET /simulate</code> - Run flow simulations</li>
+                    <li><code>GET /scenarios</code> - List available disaster scenarios</li>
                 </ul>
 
                 <h2>⚠️ Status & Maintenance</h2>
