@@ -62,6 +62,18 @@ export REDIS_URL="redis://localhost:6379/0"
 
 ### Using Docker
 
+Pull and run the latest production image:
+
+```bash
+docker pull ghcr.io/eltifi/vectra:latest
+docker run -p 8000:8000 \
+  -e DATABASE_URL="postgresql://user:password@localhost:5432/vectra" \
+  -e REDIS_URL="redis://localhost:6379/0" \
+  ghcr.io/eltifi/vectra:latest
+```
+
+Or use docker-compose:
+
 ```bash
 cd /path/to/vectra
 docker-compose up -d
@@ -83,14 +95,14 @@ curl http://localhost:8000/
 
 ### Road Network Data
 
-**GET** `/api/segments`
+**GET** `/segments`
 
 Returns road network as GeoJSON FeatureCollection with merged continuous segments.
 
 **Response**: GeoJSON FeatureCollection
 
 ```bash
-curl http://localhost:8000/api/segments | jq '.'
+curl http://localhost:8000/segments | jq '.'
 ```
 
 **Properties**:
@@ -102,7 +114,7 @@ curl http://localhost:8000/api/segments | jq '.'
 
 ### Evacuation Simulation
 
-**GET** `/api/simulate`
+**GET** `/simulate`
 
 Runs max-flow simulation for evacuation capacity analysis.
 
@@ -113,7 +125,7 @@ Runs max-flow simulation for evacuation capacity analysis.
 **Response**: JSON with simulation metrics
 
 ```bash
-curl "http://localhost:8000/api/simulate?scenario=contraflow&region=Tampa%20Bay"
+curl "http://localhost:8000/simulate?scenario=contraflow&region=Tampa%20Bay"
 ```
 
 **Response Example**:
@@ -133,12 +145,12 @@ curl "http://localhost:8000/api/simulate?scenario=contraflow&region=Tampa%20Bay"
 
 ### Hurricane Scenarios
 
-**GET** `/api/hurricane-scenarios`
+**GET** `/scenarios`
 
 Returns all predefined hurricane evacuation scenarios with scientific parameters.
 
 ```bash
-curl http://localhost:8000/api/hurricane-scenarios | jq '.'
+curl http://localhost:8000/scenarios | jq '.'
 ```
 
 **Response Format**:
@@ -398,7 +410,7 @@ The backend is designed to handle:
 ### Adding Features
 
 1. **New API Endpoint**:
-   - Add route to `app/api/routes.py`
+   - Add route to `app/routes.py`
    - Document with docstring and comments
    - Add tests to `tests/test_api.py`
 
